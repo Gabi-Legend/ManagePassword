@@ -4,17 +4,27 @@ secretWord = "maya"
 appPasswordVerify = input("What is the app pasword? : ")
 secretWordVerify = input("What is the secret word? : ")
 
+def readPasswords():
+    with open("password.txt", "r") as f:
+        for line in f.readlines():
+            print(line)
+
 def startApp():
     print("Welcome to your password manager python app!")
-    mode = input("What would you like to do, add password or see a existing password? press q to quit : ").lower()
+    mode = input("What would you like to do, add password or read an existing password? press q to quit : ").lower()
     if mode == "q":
         print("Goodbye!")
     elif mode == "add":
         accountName = input("Enter the name of the account : ")
         accountPassword = input("Enter the password of the account : ")
+    elif mode == "read":
+        readPasswords()
+    else:
+        print("Invalid mode, try again")
 
         with open('password.txt', 'a') as f:
             f.write(accountName + " | " + accountPassword + '\n') 
+    startApp()
 
 def tryAgainFunction():
     appPasswordVerify = input("What is the app pasword? : ")
