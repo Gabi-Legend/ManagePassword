@@ -14,17 +14,17 @@ def startApp():
         accountPassword = input("Enter the password of the account : ")
 
         with open('password.txt', 'a') as f:
-            f.write(accountName + " | " + accountPassword) 
+            f.write(accountName + " | " + accountPassword + '\n') 
 
 def tryAgainFunction():
     appPasswordVerify = input("What is the app pasword? : ")
     secretWordVerify = input("What is the secret word? : ")
-    if appPasswordVerify == "1234" and secretWordVerify == "maya":
+    if appPasswordVerify == appPassword and secretWordVerify == secretWord:
         startApp()
     else:
         print("Try again later")
 
-if appPasswordVerify == "1234" and secretWordVerify == "maya":
+if appPasswordVerify == appPassword and secretWordVerify == secretWord:
     startApp()
 
 else:
